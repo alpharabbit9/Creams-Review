@@ -12,18 +12,20 @@ export default function StarRating({ onRate }: StarRatingProps) {
   const [hovered, setHovered] = useState(0)
 
   return (
-    <div className="flex flex-col items-center gap-8">
+    <div className="flex flex-col items-center gap-6 sm:gap-8">
       {/* Heading */}
-      <div className="text-center space-y-2">
-        <h2 className="text-3xl font-bold text-white leading-tight">
+      <div className="text-center space-y-1.5 sm:space-y-2">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
           How was your experience?
         </h2>
-        <p className="text-zinc-400 text-base">Tap a star to rate us instantly</p>
+        <p className="text-zinc-400 text-sm sm:text-base">
+          Tap a star to rate us instantly
+        </p>
       </div>
 
-      {/* Stars */}
+      {/* Stars — sized so all 5 fit even on 320px screens */}
       <div
-        className="flex gap-2"
+        className="flex gap-1 sm:gap-2 lg:gap-3"
         onMouseLeave={() => setHovered(0)}
         role="group"
         aria-label="Star rating"
@@ -35,7 +37,7 @@ export default function StarRating({ onRate }: StarRatingProps) {
               key={star}
               type="button"
               className={cn(
-                "p-2 rounded-full transition-all duration-150",
+                "p-1.5 sm:p-2 rounded-full transition-all duration-150",
                 "focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400",
                 "active:scale-90 touch-manipulation select-none",
                 isActive ? "scale-110" : "scale-100"
@@ -47,7 +49,8 @@ export default function StarRating({ onRate }: StarRatingProps) {
             >
               <Star
                 className={cn(
-                  "w-14 h-14 transition-all duration-150 drop-shadow-md",
+                  // w-11 on mobile (44px) keeps 5 stars within 320px; scales up on larger screens
+                  "w-11 h-11 sm:w-13 sm:h-13 lg:w-14 lg:h-14 transition-all duration-150 drop-shadow-md",
                   isActive
                     ? "fill-amber-400 text-amber-400"
                     : "fill-zinc-700 text-zinc-600"
@@ -58,7 +61,7 @@ export default function StarRating({ onRate }: StarRatingProps) {
         })}
       </div>
 
-      <p className="text-zinc-600 text-xs">No button needed — just tap</p>
+      <p className="text-zinc-600 text-xs sm:text-sm">No button needed — just tap</p>
     </div>
   )
 }

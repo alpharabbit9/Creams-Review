@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.google.com)",
+      "WebSearch",
+      "WebFetch(domain:uk.tortoisepath.com)",
+      "WebFetch(domain:foursquare.com)",
+      "WebFetch(domain:wanderboat.ai)",
+      "WebFetch(domain:developers.google.com)",
+      "WebFetch(domain:outscraper.com)",
+      "WebFetch(domain:directory.getwestlondon.co.uk)",
+      "WebFetch(domain:www.yelp.co.uk)",
+      "WebFetch(domain:gb.centralindex.com)"
+    ]
+  }
+}

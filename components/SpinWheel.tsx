@@ -192,7 +192,7 @@ export default function SpinWheel({
               </span>
               <span className="text-pink-400 font-black uppercase leading-none"
                 style={{ fontSize: "clamp(11px, 3vw, 14px)" }}>
-                SPIN
+                RATE
               </span>
             </>
           )}

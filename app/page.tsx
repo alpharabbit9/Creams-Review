@@ -145,12 +145,15 @@ export default function Home() {
           {/* ── Idle / Spinning: show wheel ── */}
           {(appState === "idle" || appState === "spinning") && (
             <div className="flex flex-col items-center gap-5 sm:gap-6 animate-in fade-in duration-400">
-              <div className="text-center space-y-1.5">
+              <div className="text-center space-y-2">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white uppercase tracking-tight">
-                  Spin to Win!
+                  Rate us to Win!
                 </h2>
-                <p className="text-zinc-400 text-sm sm:text-base leading-snug">
-                  Tap the wheel to reveal your reward
+                <p className="text-zinc-300 text-sm sm:text-base leading-snug font-semibold">
+                  Leave us a Google review &amp; spin the wheel
+                </p>
+                <p className="text-zinc-500 text-xs sm:text-sm leading-snug">
+                  Tap the wheel — you&apos;ll be taken to Google Reviews,<br className="hidden sm:block" /> then come back to reveal your reward 🎁
                 </p>
               </div>
 

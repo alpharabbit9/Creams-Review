@@ -10,7 +10,8 @@
       "WebFetch(domain:outscraper.com)",
       "WebFetch(domain:directory.getwestlondon.co.uk)",
       "WebFetch(domain:www.yelp.co.uk)",
-      "WebFetch(domain:gb.centralindex.com)"
+      "WebFetch(domain:gb.centralindex.com)",
+      "Bash(npx next *)"
     ]
   }
 }

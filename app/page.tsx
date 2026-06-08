@@ -29,25 +29,10 @@ export default function Home() {
 
     const googleUrl = process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL
 
-    // Open a window SYNCHRONOUSLY — this is within the user gesture so popup
-    // blockers never trigger. We show a holding screen, then navigate it to
-    // Google 2 s later once the wheel is visibly spinning.
-    let reviewWin: Window | null = null
+    // Open Google Reviews synchronously (same call stack as the tap gesture —
+    // popup blockers never fire on synchronous window.open calls).
     if (googleUrl) {
-      reviewWin = window.open("", "_blank")
-      if (reviewWin) {
-        reviewWin.document.documentElement.innerHTML = `
-          <head><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-          <body style="margin:0;background:#000;color:#fff;font-family:sans-serif;
-                       display:flex;align-items:center;justify-content:center;
-                       height:100vh;text-align:center;">
-            <div>
-              <div style="font-size:3rem;margin-bottom:1rem">🎡</div>
-              <p style="font-size:1.1rem;font-weight:700;margin:0">Your wheel is spinning…</p>
-              <p style="font-size:.85rem;color:#aaa;margin:.5rem 0 0">Redirecting to Google Reviews shortly</p>
-            </div>
-          </body>`
-      }
+      window.open(googleUrl, "_blank", "noopener,noreferrer")
     }
 
     try {
@@ -61,13 +46,7 @@ export default function Home() {
       const data: SpinResult = await res.json()
       setSpinResult(data)
       setAppState("spinning")
-
-      // Navigate the already-open window to Google after 2 s
-      if (reviewWin && googleUrl) {
-        setTimeout(() => { reviewWin!.location.href = googleUrl }, 2000)
-      }
     } catch {
-      reviewWin?.close()
       setError("Something went wrong. Please try again.")
     } finally {
       setLoading(false)
